@@ -11,7 +11,9 @@ export default class Navbar extends React.Component<INavbarProps, INavbarState> 
             <div>
                 <Link to="/">VKVS</Link>
                 {' '}
-                <Link to="/clients">Klientai</Link>
+                <Link to="/klientai">Klientai</Link>
+                {' '}
+                <Link to="/pavyzdziai">Pavyzdžiai</Link>
             </div>
         )
     }

@@ -5,6 +5,7 @@ import Layout from './shell/Layout';
 import Home from './home/Home';
 import Clients from './clients/Clients';
 import Client from './clients/Client';
+import Examples from './examples/Examples';
 import NotFoundPage from './shell/NotFoundPage';
 
 class App extends Component {
@@ -15,8 +16,9 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/clients" component={Clients} />
-              <Route exact path="/clients/:id" component={Client} />
+              <Route exact path="/klientai" component={Clients} />
+              <Route exact path="/klientai/:id" component={Client} />
+              <Route exact path="/pavyzdziai" component={Examples} />
               <Route component={NotFoundPage} />
             </Switch>
           </Layout>

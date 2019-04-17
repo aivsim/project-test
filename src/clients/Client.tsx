@@ -18,7 +18,9 @@ export default class Client extends React.Component<IClientProps, IClientState> 
 
     render() {
         return (
-            <div>{this.state.id}</div>
+            <div>
+                <div>Kliento id: {this.state.id}</div>
+            </div>
         );
     }
 }
