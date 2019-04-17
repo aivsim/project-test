@@ -11,7 +11,7 @@ export default class NotFoundPage extends React.Component<INotFoundPageProps, IN
     render() {
         const { location } = this.props;
         return (
-            <h3>Puslapis nerastas: {location.pathname}</h3>
+            <div>Puslapis nerastas: {location.pathname}</div>
         );
     }
 }
