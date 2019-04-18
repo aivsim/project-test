@@ -8,24 +8,22 @@ import Client from './clients/Client';
 import Examples from './examples/Examples';
 import NotFoundPage from './shell/NotFoundPage';
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <main>
-        <Router>
-          <Layout>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/klientai" component={Clients} />
-              <Route exact path="/klientai/:id" component={Client} />
-              <Route exact path="/pavyzdziai" component={Examples} />
-              <Route component={NotFoundPage} />
-            </Switch>
-          </Layout>
-        </Router>        
-      </main>
+        <main>
+            <Router>
+                <Layout>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/klientai" component={Clients} />
+                        <Route exact path="/klientai/:id" component={Client} />
+                        <Route exact path="/pavyzdziai" component={Examples} />
+                        <Route component={NotFoundPage} />
+                    </Switch>
+                </Layout>
+            </Router>
+        </main>
     );
-  }
-}
+};
 
 export default App;

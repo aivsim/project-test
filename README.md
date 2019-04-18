@@ -17,4 +17,6 @@ npm start
 * UI: [Office UI Fabric](https://developer.microsoft.com/en-us/fabric)
 * Logic: [React hooks](https://reactjs.org/docs/hooks-intro.html)
 * Linting: [ESLint with Typescript plugin](https://medium.com/@oliver.grack/using-eslint-with-typescript-and-react-hooks-and-vscode-c583a18f0c75), [Configuring](https://eslint.org/docs/user-guide/configuring#using-configuration-files)
-* Code formatting: [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+* Code formatting: [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode). Config in .prettierrc file.
+* VS Code Workspace settings: ./.vscode/settings.json file.
+* VS Code Recommended extensions settings: ./.vscode/extensions.json.

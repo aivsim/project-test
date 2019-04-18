@@ -1,34 +1,18 @@
 import React from 'react';
-import { Link, RouteComponentProps, Route } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
-interface IClientsProps extends RouteComponentProps {
-}
+const Clients: React.FunctionComponent<RouteComponentProps> = props => {
+    const [ids] = React.useState<number[]>([1, 2, 3, 4]);
 
-interface IClientsState {
-    ids: Array<number>;
-}
+    return (
+        <ul className="list-group">
+            {ids.map((x, i) => (
+                <li key={i} className="list-group-item">
+                    <Link to={`${props.match.url}/${x}`}>{x}</Link>
+                </li>
+            ))}
+        </ul>
+    );
+};
 
-export default class Clients extends React.Component<IClientsProps, IClientsState> {
-    constructor(props: IClientsProps) {
-        super(props);
-        this.state = {
-            ids: [1, 2, 3, 4]
-        }
-    }
-
-    render() {
-        const { match } = this.props;
-        return (
-            <>
-                <ul className="list-group">
-                    {this.state.ids.map((x, i) => 
-                        <li key={i} className="list-group-item">
-                            <Link to={`${match.url}/${x}`}>{x}</Link>
-                        </li>
-                    )}
-                </ul>
-            </>
-        );
-    }
-}
-
+export default Clients;

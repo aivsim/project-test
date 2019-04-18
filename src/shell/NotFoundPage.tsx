@@ -1,17 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-interface INotFoundPageProps extends RouteComponentProps {
-}
+const NotFoundPage: React.StatelessComponent<RouteComponentProps> = props => {
+    return <div>Puslapis nerastas: {props.location.pathname}</div>;
+};
 
-interface INotFoundPageState {
-}
-
-export default class NotFoundPage extends React.Component<INotFoundPageProps, INotFoundPageState> {
-    render() {
-        const { location } = this.props;
-        return (
-            <div>Puslapis nerastas: {location.pathname}</div>
-        );
-    }
-}
+export default NotFoundPage;

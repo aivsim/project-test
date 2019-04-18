@@ -1,27 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useRouter from '../utils/use-router';
 
-export default class Navbar extends React.Component<INavbarProps, INavbarState> {
-    constructor(props: INavbarProps) {
-        super(props);
-    }
+const Navbar: React.FunctionComponent = () => {
+    const { history, location, match } = useRouter();
+    console.warn(history, location, match);
+    return (
+        <>
+            <Link to="/">VKVS </Link>
+            <Link to="/klientai">Klientai </Link>
+            <Link to="/pavyzdziai">Pavyzdžiai </Link>
+        </>
+    );
+};
 
-    render() {
-        return (
-            <div>
-                <Link to="/">VKVS</Link>
-                {' '}
-                <Link to="/klientai">Klientai</Link>
-                {' '}
-                <Link to="/pavyzdziai">Pavyzdžiai</Link>
-            </div>
-        )
-    }
-}
-
-interface INavbarProps {
-
-}
-
-interface INavbarState {
-}
+export default Navbar;
