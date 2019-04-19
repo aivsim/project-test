@@ -7,6 +7,7 @@ import Clients from './clients/Clients';
 import Client from './clients/Client';
 import Examples from './examples/Examples';
 import NotFoundPage from './shell/NotFoundPage';
+import Forms from './forms/Forms';
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
                         <Route exact path="/klientai" component={Clients} />
                         <Route exact path="/klientai/:id" component={Client} />
                         <Route exact path="/pavyzdziai" component={Examples} />
+                        <Route exact path="/formos" component={Forms} /> 
                         <Route component={NotFoundPage} />
                     </Switch>
                 </Layout>
