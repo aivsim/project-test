@@ -1,21 +1,41 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+
+import { Stack, IStackTokens } from 'office-ui-fabric-react/lib/Stack';
+import { mergeStyleSets, DefaultPalette } from 'office-ui-fabric-react/lib/Styling';
+import Footer from './Footer';
+import Content from './Content';
 
 const Layout: React.StatelessComponent = props => {
+    const styles = mergeStyleSets({
+        root: {
+            marginTop: 0,
+            background: DefaultPalette.yellow
+        },
+
+        item: {
+            background: DefaultPalette.purpleLight
+        }
+    });
+
+    const stackTokens: IStackTokens = { childrenGap: 5 };
+
     return (
-        <div>
+        <>
             <Navbar />
-            <div className="ms-Grid" dir="ltr">
-                <div className="ms-Grid-row">
-                    <div className="ms-Grid-col ms-sm6 ms-md4 ms-lg2">
-                        Sidebar
-                    </div>
-                    <div className="ms-Grid-col ms-sm6 ms-md8 ms-lg10">
-                        {props.children}
-                    </div>
-                </div>
-            </div>
-        </div>
+            <Stack tokens={stackTokens}>
+                <Stack horizontal tokens={stackTokens} className={styles.root}>
+                    <Stack.Item className={styles.item} styles={{ root: { width: 250 } }}>
+                        <Sidebar />
+                    </Stack.Item>
+                    <Stack.Item grow className={styles.item}>
+                        <Content>{props.children}</Content>
+                    </Stack.Item>
+                </Stack>
+            </Stack>
+            <Footer />
+        </>
     );
 };
 
