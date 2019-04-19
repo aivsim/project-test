@@ -1,11 +1,18 @@
 import React from 'react';
+import adalContext from '../api/adalConfig';
 
 import { Stack, IStackTokens } from 'office-ui-fabric-react/lib/Stack';
-import { IPersonaSharedProps, Persona, PersonaSize } from 'office-ui-fabric-react/lib/Persona';
+import { Persona, PersonaSize } from 'office-ui-fabric-react/lib/Persona';
 import { mergeStyleSets, DefaultPalette } from 'office-ui-fabric-react/lib/Styling';
 import { Text } from 'office-ui-fabric-react/lib/Text';
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 const Navbar: React.StatelessComponent = () => {
+    const handleLogOut = (e: React.MouseEvent<{}>) => {
+        e.preventDefault();
+        adalContext.LogOut();
+    };
+
     const styles = mergeStyleSets({
         root: {
             background: DefaultPalette.black
@@ -25,6 +32,9 @@ const Navbar: React.StatelessComponent = () => {
                 <Text variant={'xxLarge'}>VKVS</Text>
             </Stack.Item>
             <Stack.Item className={styles.item} align="center">
+                <DefaultButton data-automation-id="test" allowDisabledFocus={true} text="Logout" onClick={e => handleLogOut(e)} />
+            </Stack.Item>
+            <Stack.Item className={styles.item} align="center">
                 <LogedInUser />
             </Stack.Item>
         </Stack>
@@ -32,17 +42,11 @@ const Navbar: React.StatelessComponent = () => {
 };
 
 const LogedInUser: React.StatelessComponent = () => {
-    const examplePersona: IPersonaSharedProps = {
-        secondaryText: 'Designer',
-        tertiaryText: 'In a meeting',
-        optionalText: 'Available at 4:00pm'
-    };
-
     const styles = mergeStyleSets({
-        primaryText: { color: DefaultPalette.white }
+        primaryText: { color: DefaultPalette.white } 
     });
 
-    return <Persona {...examplePersona} size={PersonaSize.size28} text="Foo Bar" styles={styles} />;
+    return <Persona size={PersonaSize.size28} text={adalContext.AuthContext.getCachedUser().profile.name} styles={styles} />;
 };
 
 export default Navbar;

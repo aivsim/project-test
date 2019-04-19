@@ -9,7 +9,14 @@ import './index.css';
 
 initializeIcons();
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
+import { runWithAdal } from 'react-adal';
+import adalContext from './api/adalConfig';
+const DO_NOT_LOGIN = false;
+
+runWithAdal(
+    adalContext.AuthContext,
+    () => {
+        ReactDOM.render(<App />, document.getElementById('root'));
+    },
+    DO_NOT_LOGIN
 );
